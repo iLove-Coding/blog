@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/public/stylesheets/main.css">
+    <script src="/public/javascripts/jquery-3.1.1.min.js"></script>
+    <script src="/public/javascripts/index.js"></script>
+</head>
+<body>
+{% if userInfo._id %}
+<section class="user-info" id="userInfo">
+    <p>用户信息</p>
+    <span> 你好！</span>
+    {% if userInfo.isAdmin %}
+    <span>管理员{{userInfo.username}}</span>
+    <a href="javascript:;">进入管理</a>
+    {% else %}
+    <span class="username">{{userInfo.username}}</span>
+    <span>,欢迎登录我的博客</span>
+    {% endif %}
+
+    <br>
+    <a href="javascript:;" id="logout" class="logout">退出</a>
+</section>
+{% else %}
+<section class="register-box" id="registerBox">
+    <h1>注册</h1>
+    姓名
+    <input type="text" name="username">
+    <br>
+    密码
+    <input type="password" name="password">
+    <br>
+    确认
+    <input type="password" name="repassword">
+    <br>
+    <button>确定</button>
+    <p>已有账号？<a href="javascript:;">马上登录</a></p>
+    <p class="result-info"></p>
+</section>
+<section class="login-box" id="loginBox">
+    <h1>登录</h1>
+    姓名
+    <input type="text" name="username">
+    <br>
+    密码
+    <input type="password" name="password">
+    <br>
+    <button>确定</button>
+    <p>还没注册？<a href="javascript:;">马上注册</a></p>
+    <p class="result-info"></p>
+</section>
+{% endif%}
+</body>
+</html>
